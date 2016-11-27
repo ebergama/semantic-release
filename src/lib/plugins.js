@@ -12,9 +12,8 @@ var exports = module.exports = function (options) {
     if (!Array.isArray(options[plugin])) {
       plugins[plugin] = exports.normalize(
         options[plugin],
-        plugin === 'verifyConditions'
-          ? '@semantic-release/condition-travis'
-          : './plugin-noop'
+        // FORCE noop plugin since default is Travis and we don't use it.
+        './plugin-noop'
       )
       return
     }
